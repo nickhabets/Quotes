@@ -105,5 +105,4 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontFamily: 'OpenSans-Italic'
   }
-
 });

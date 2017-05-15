@@ -4,12 +4,27 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+		"test": "jest",
+		"generate:generator": "./node_modules/.bin/yo ./generator/generator",
+		"generate:component": "./node_modules/.bin/yo ./generator/component",
+		"generate:view": "./node_modules/.bin/yo ./generator/view",
+		"generate:duck": "./node_modules/.bin/yo ./generator/duck"
 	},
 	"dependencies": {
+		"immutable": "^3.8.1",
+		"isomorphic-fetch": "^2.2.1",
 		"react": "16.0.0-alpha.6",
 		"react-native": "0.44.0",
-		"react-native-swipe-cards": "^0.1.0"
+		"react-native-sqlite-storage": "^3.3.1",
+		"react-native-swipe-cards": "^0.1.0",
+		"react-redux": "^5.0.4",
+		"redux": "^3.6.0",
+		"redux-observable": "^0.14.1",
+		"redux-promise-middleware": "^4.2.0",
+		"redux-thunk": "^2.2.0",
+		"rxjs": "^5.4.0",
+		"yeoman-generator": "^1.1.1",
+		"yo": "^1.8.5"
 	},
 	"devDependencies": {
 		"babel-jest": "20.0.1",
@@ -21,6 +36,8 @@
 		"preset": "react-native"
 	},
 	"rnpm": {
-		"assets": ["./src/res/fonts"]
+		"assets": [
+			"./src/res/fonts"
+		]
 	}
 }
