@@ -27,6 +27,13 @@ const Cards = [
       title: 'CEO at Box',
       photoUrl: 'https://s9.postimg.org/es5cxwynj/photo.png'
     }
+  }, {
+    text: '“Does it better” will always beat “did it first.” ',
+    author: {
+      name: 'Aaron Levie',
+      title: 'CEO at Box',
+      photoUrl: 'https://s9.postimg.org/es5cxwynj/photo.png'
+    }
   }
 ]
 
