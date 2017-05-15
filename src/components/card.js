@@ -46,7 +46,7 @@ export default class Card extends Component {
           }}
         >
           <Image
-            source={{ uri: 'https://s9.postimg.org/es5cxwynj/photo.png' }}
+            source={{ uri: this.props.author.photoUrl }}
             style={styles.avatar}
           />
           <View
@@ -102,7 +102,8 @@ const styles = StyleSheet.create({
     color: 'gray'
   },
   text: {
-    fontSize: 24
+    fontSize: 32,
+    fontFamily: 'OpenSans-Italic'
   }
 
 });

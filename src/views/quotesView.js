@@ -28,11 +28,11 @@ const Cards = [
       photoUrl: 'https://s9.postimg.org/es5cxwynj/photo.png'
     }
   }, {
-    text: '“Does it better” will always beat “did it first.” ',
+    text: 'You don’t have to change who you are, you have to be more of who you are.',
     author: {
-      name: 'Aaron Levie',
-      title: 'CEO at Box',
-      photoUrl: 'https://s9.postimg.org/es5cxwynj/photo.png'
+      name: 'Sally Hogshead',
+      title: 'New York Times bestselling author',
+      photoUrl: 'https://image.ibb.co/kMHPGQ/woman.jpg'
     }
   }
 ]
@@ -40,11 +40,13 @@ const Cards = [
 export default class QuotesView extends Component {
 
   static propTypes = {
-    cards: PropTypes.array
+    cards: PropTypes.array,
+    category: PropTypes.string
   }
 
   static defaultProps = {
-    cards: Cards
+    cards: Cards,
+    category: "UI/UX Quotes"
   }
 
   render() {
@@ -56,6 +58,11 @@ export default class QuotesView extends Component {
           source={require('../res/img/background.png')}
           style={styles.background}
         />
+        <View
+          style={styles.categoryView}
+        >
+          <Text style={styles.categoryText}>{this.props.category}</Text>
+        </View>
         <SwipeCards
           cards={cards}
           cardKey={'text'}
@@ -139,6 +146,15 @@ const styles = StyleSheet.create({
   twitter: {
     flex: 1,
     alignItems: 'center'
+  },
+  categoryText: {
+    fontSize: 24,
+    color: 'white'
+  },
+  categoryView: {
+    position: 'absolute',
+    left: width * 0.08,
+    top: height * 0.05,
+    backgroundColor: 'transparent'
   }
-
 })
