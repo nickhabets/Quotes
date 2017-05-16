@@ -11,8 +11,14 @@ import {
 } from 'react-native';
 
 import QuotesView from './views/quotesView'
+import { initDB } from './store/sqlite'
 
 export default class App extends Component {
+  
+  componentWillMount() {
+    initDB()
+  }
+  
   render() {
     return (
       <QuotesView/>

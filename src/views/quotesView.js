@@ -13,45 +13,27 @@ import {
   TouchableOpacity
 } from 'react-native'
 import SwipeCards from 'react-native-swipe-cards'
+import { connect } from 'react-redux'
 
 import Card from '../components/card'
 import NoMoreCards from '../components/noMoreCards'
 
 const { width, height } = Dimensions.get('window')
 
-const Cards = [
-  {
-    text: '“Does it better” will always beat “did it first.”',
-    author: {
-      name: 'Aaron Levie',
-      title: 'CEO at Box',
-      photoUrl: 'https://s9.postimg.org/es5cxwynj/photo.png'
-    }
-  }, {
-    text: 'You don’t have to change who you are, you have to be more of who you are.',
-    author: {
-      name: 'Sally Hogshead',
-      title: 'New York Times bestselling author',
-      photoUrl: 'https://image.ibb.co/kMHPGQ/woman.jpg'
-    }
-  }
-]
-
-export default class QuotesView extends Component {
+export class QuotesView extends Component {
 
   static propTypes = {
-    cards: PropTypes.array,
     category: PropTypes.string
   }
 
   static defaultProps = {
-    cards: Cards,
     category: "UI/UX Quotes"
   }
 
   render() {
 
-    const { cards } = this.props
+    const { quotes } = this.props
+
     return (
       <View style={styles.container}>
         <Image
@@ -64,7 +46,7 @@ export default class QuotesView extends Component {
           <Text style={styles.categoryText}>{this.props.category}</Text>
         </View>
         <SwipeCards
-          cards={cards}
+          cards={quotes}
           cardKey={'text'}
           renderCard={(cardData) => <Card {...cardData}/>}
           renderNoMoreCards={() => <NoMoreCards />}
@@ -158,3 +140,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent'
   }
 })
+
+export default connect((state) => {
+  const props = {
+    quotes: state.quotes.quotes.toJS()
+  }
+
+  return props
+})(QuotesView)

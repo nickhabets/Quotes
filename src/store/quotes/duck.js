@@ -3,6 +3,7 @@ import { Record, List } from 'immutable'
 import { combineEpics } from 'redux-observable'
 
 import { INIT, LOADING, SUCCESS, ERROR } from '../../constants/phase'
+import initialQuotes from '../../constants/quotes'
 
 import * as api from './api'
 
@@ -10,9 +11,9 @@ import * as api from './api'
  * Public: Action Types
  */
 
-export const FETCH_EXAMPLE = 'quotes/quotes/FETCH_EXAMPLE'
-export const FETCH_EXAMPLE_SUCCESS = 'quotes/quotes/FETCH_EXAMPLE_SUCCESS'
-export const FETCH_EXAMPLE_ERROR = 'quotes/quotes/FETCH_EXAMPLE_ERROR'
+export const FETCH_QUOTES = 'quotes/quotes/FETCH_QUOTES'
+export const FETCH_QUOTES_SUCCESS = 'quotes/quotes/FETCH_QUOTES_SUCCESS'
+export const FETCH_QUOTES_ERROR = 'quotes/quotes/FETCH_QUOTES_ERROR'
 
 /**
  * Private: Initial State
@@ -20,13 +21,13 @@ export const FETCH_EXAMPLE_ERROR = 'quotes/quotes/FETCH_EXAMPLE_ERROR'
 
 const InitialState = new Record({
   phase: INIT,
-  exampleThings: List(),
+  quotes: List(initialQuotes),
   error: null
 })
 
 const toInitialState = (state) => new InitialState({
   ...state,
-  exampleThings: List(state.things)
+  quotes: List(state.quotes)
 })
 
 /**
@@ -38,15 +39,15 @@ export default function reducer(state = new InitialState(), action = {}) {
 
   switch (action.type) {
 
-    case FETCH_EXAMPLE:
+    case FETCH_QUOTES:
       return state.set('phase', LOADING)
 
-    case FETCH_EXAMPLE_SUCCESS:
+    case FETCH_QUOTES_SUCCESS:
       return state
-        .set('exampleThings', action.payload.things)
+        .set('quotes', action.payload.quotes)
         .set('phase', SUCCESS)
 
-    case FETCH_EXAMPLE_ERROR:
+    case FETCH_QUOTES_ERROR:
       return state
         .set('error', action.payload.error)
         .set('phase', ERROR)
@@ -62,24 +63,24 @@ export default function reducer(state = new InitialState(), action = {}) {
  * Public: Action Creators
  */
 
-export const fetchExample = () => ({
-  type: FETCH_EXAMPLE
+export const fetchQuotes = () => ({
+  type: FETCH_QUOTES
 })
 
 /**
  * Private: Epics
  */
 
-const fetchExampleEpic = (action$) =>
+const fetchQuotesEpic = (action$) =>
   action$
-    .ofType(FETCH_EXAMPLE)
+    .ofType(FETCH_QUOTES)
     .mergeMap(api.fetchExample)
-    .map((things) => ({
-      type: FETCH_EXAMPLE_SUCCESS,
-      payload: { things }
+    .map((quotes) => ({
+      type: FETCH_QUOTES_SUCCESS,
+      payload: { quotes }
     }))
     .catch((error) => Rx.Observable.of({
-      type: FETCH_EXAMPLE_ERROR,
+      type: FETCH_QUOTES_ERROR,
       payload: { error }
     }))
 
@@ -88,5 +89,5 @@ const fetchExampleEpic = (action$) =>
  */
 
 export const quotesEpic = combineEpics(
-  fetchExampleEpic
+  fetchQuotesEpic
 )
