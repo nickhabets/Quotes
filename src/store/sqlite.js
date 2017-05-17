@@ -18,14 +18,14 @@ function openCB() {
 }
 
 export const initDB = () => {
-  db = SQLite.openDatabase("test.db", "1.0", "Test Database", 200000, openCB, errorCB)
+  db = SQLite.openDatabase("quotes.db", "1.0", "Quotes Database", 200000, openCB, errorCB)
   db.executeSql('SELECT 1 FROM Version LIMIT 1', [], () => {
     console.info('DB is Ready!')
   }, (error) => {
     console.info('DB is not Ready!', error)
     db.transaction(populateDB, (error) => {
       console.info('Failed to populate the DB!', error)
-    },);
+    });
   })
 }
 
@@ -56,6 +56,7 @@ const populateDB = () => {
   )
 
 
+  // initial quotes if the database is null
   const authors = [
     {
       author_id: '079348fadad82777acb106ed',
