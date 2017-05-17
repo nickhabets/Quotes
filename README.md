@@ -10,6 +10,7 @@ A simple React Native app to show quotes, built with
 ### Thanks To
 - [Tinder Cards for React Native!](https://github.com/meteor-factory/react-native-tinder-swipe-cards)
 - [React Native SQLite Storage](https://github.com/andpor/react-native-sqlite-storage)
+- [DB Browser for SQLite](http://sqlitebrowser.org/)
 
 ### Todo (PRs welcome!)
 - [x] Local Cache with SQLite
