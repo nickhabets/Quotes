@@ -1,6 +1,6 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Quotes React Native App
+ * https://github.com/sasasim/Quotes
  * @flow
  */
 
