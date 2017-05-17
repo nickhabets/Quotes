@@ -121,6 +121,7 @@ export const readRamdomQuotes = (number) => {
           author: {
             author_id: rawQuote.author_id,
             name: rawQuote.name,
+            title: rawQuote.title,
             photoUrl: rawQuote.photoUrl
           }
         })
