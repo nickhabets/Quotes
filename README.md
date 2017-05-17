@@ -30,12 +30,12 @@ Please note the following for the schemas:
 Not ready yet: PRs are welcome! [DB Browser for SQLite](http://sqlitebrowser.org/)
 
 ### Schemas
-####Quotes
+#### Quotes
 - quote_id TEXT PRIMARY KEY NOT NULL
 - text TEXT'
 - created INTEGER, '
 - author TEXT
-####Authors
+#### Authors
 - author_id TEXT PRIMARY KEY NOT NULL
 - name TEXT
 - title TEXT
