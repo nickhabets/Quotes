@@ -1,6 +1,6 @@
 # Quotes
 Quotes app, built with React Native, GraphQL backend
-LOOKING FOR CONTRIBUTORS. More quotes are needed.  
+LOOKING FOR CONTRIBUTORS. More quotes are needed.
 If anyone has more famous quotes, please write me.
 
 A simple React Native app to show quotes, built with
