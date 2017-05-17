@@ -27,13 +27,13 @@ You can edit /ios/Quotes/www/quotes.db with [DB Browser for SQLite](http://sqlit
 Please note the following for the schemas:
 
 #### Android
-Not ready yet: PRs are welcome! [DB Browser for SQLite](http://sqlitebrowser.org/)
+Not ready yet: PRs are welcome!
 
 ### Schemas
 #### Quotes
 - quote_id TEXT PRIMARY KEY NOT NULL
-- text TEXT'
-- created INTEGER, '
+- text TEXT
+- created INTEGER
 - author TEXT
 #### Authors
 - author_id TEXT PRIMARY KEY NOT NULL
