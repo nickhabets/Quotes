@@ -22,7 +22,7 @@ export const FETCH_RANDOM_QUOTES = 'quotes/quotes/FETCH_RANDOM_QUOTES'
 
 const InitialState = new Record({
   phase: INIT,
-  quotes: List(initialQuotes),
+  quotes: List(),
   error: null
 })
 

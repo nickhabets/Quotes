@@ -14,7 +14,30 @@ A simple React Native app to show quotes, built with
 
 ### Todo (PRs welcome!)
 - [x] Local Cache with SQLite
-- [ ] Initial SQLite DB file
+- [x] Initial SQLite DB file(iOS)
+- [ ] Initial SQLite DB file(Android)
 - [ ] Backend
 - [ ] Sync with Backend(GraphQL)
 - [ ] Dynamic Categories
+
+### How to modify Quotes?
+
+#### iOS
+You can edit /ios/Quotes/www/quotes.db with [DB Browser for SQLite](http://sqlitebrowser.org/)
+Please note the following for the schemas:
+
+#### Android
+Not ready yet: PRs are welcome! [DB Browser for SQLite](http://sqlitebrowser.org/)
+
+#### Schemas
+#####Quotes
+    - quote_id TEXT PRIMARY KEY NOT NULL
+    - text TEXT'
+    - created INTEGER, '
+    - author TEXT
+#####Authors
+    - author_id TEXT PRIMARY KEY NOT NULL
+    - name TEXT
+    - title TEXT
+    - photoUrl TEXT
+    - created INTEGER

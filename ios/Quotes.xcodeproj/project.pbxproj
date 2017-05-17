@@ -45,6 +45,7 @@
 		A26D35C36CDF4466AF06E971 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8774C5BA597246F1AD5DF872 /* OpenSans-ExtraBoldItalic.ttf */; };
 		ACD39285A58A4A69B2E93144 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AFCD313A73F463B975A9AF9 /* libsqlite3.0.tbd */; };
 		BFE2BFAFC8DB455F9247320A /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7015A10E8DAD4FD98DE73618 /* OpenSans-BoldItalic.ttf */; };
+		CE5530C41ECC30BC001EBA21 /* www in Resources */ = {isa = PBXBuildFile; fileRef = CE5530C31ECC30BC001EBA21 /* www */; };
 		D0BFF1AD6F71464A8C46705D /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3228212B73754830B18A8E90 /* OpenSans-Bold.ttf */; };
 		D9CE5E8D0A244DAD94848D41 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F9188D53A274F2FB5390A15 /* OpenSans-ExtraBold.ttf */; };
 		F15C4EE56D534B44A0CF7AA0 /* libSQLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F31CD0E4D6F242EBB9181B5F /* libSQLite.a */; };
@@ -285,6 +286,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8774C5BA597246F1AD5DF872 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../src/res/fonts/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		B76C11CE6DFA4485BFA2C414 /* SQLite.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../node_modules/react-native-sqlite-storage/src/ios/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		CE5530C31ECC30BC001EBA21 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = Quotes/www; sourceTree = "<group>"; };
 		F31CD0E4D6F242EBB9181B5F /* libSQLite.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSQLite.a; sourceTree = "<group>"; };
 		F6C9AD460C98443F8154390A /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiboldItalic.ttf"; path = "../src/res/fonts/OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -423,6 +425,7 @@
 		13B07FAE1A68108700A75B9A /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
+				CE5530C31ECC30BC001EBA21 /* www */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -928,6 +931,7 @@
 				A26D35C36CDF4466AF06E971 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				442D32248CD14CDCBE4FEA37 /* OpenSans-Italic.ttf in Resources */,
 				6A0312012C254BCCB380E843 /* OpenSans-Light.ttf in Resources */,
+				CE5530C41ECC30BC001EBA21 /* www in Resources */,
 				09613D9DA01346F5B26FB3F9 /* OpenSans-LightItalic.ttf in Resources */,
 				9F869DEA7ABE42049716FB0C /* OpenSans-Regular.ttf in Resources */,
 				6212493C9B4D48C49EB0DA48 /* OpenSans-Semibold.ttf in Resources */,

@@ -18,9 +18,9 @@ function openCB() {
 }
 
 export const initDB = () => {
-  db = SQLite.openDatabase("quotes.db", "1.0", "Quotes Database", 200000, openCB, errorCB)
+  db = SQLite.openDatabase({name : 'quotes.db', createFromLocation : 1}, openCB, errorCB)
   db.executeSql('SELECT 1 FROM Version LIMIT 1', [], () => {
-    console.info('DB is Ready!')
+    console.info('DB is OK!')
   }, (error) => {
     console.info('DB is not Ready!', error)
     db.transaction(populateDB, (error) => {
@@ -55,7 +55,7 @@ const populateDB = () => {
     }
   )
 
-
+/*
   // initial quotes if the database is null
   const authors = [
     {
@@ -106,7 +106,7 @@ const populateDB = () => {
       , [], (result) => {
         console.info(result)
       })
-  }
+  }*/
 }
 
 export const readRamdomQuotes = (number) => {

@@ -37,6 +37,10 @@ export class QuotesView extends Component {
     this.cardRemoved = this.cardRemoved.bind(this)
   }
 
+  componentWillMount() {
+    this.props.fetchQuotes()
+  }
+
   render() {
 
     const { quotes } = this.props
