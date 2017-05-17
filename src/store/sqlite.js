@@ -39,20 +39,22 @@ const populateDB = () => {
   db.executeSql('CREATE TABLE IF NOT EXISTS Quotes( '
     + 'quote_id VARCHAR(12) PRIMARY KEY NOT NULL, '
     + 'text VARCHAR(500), '
-    + 'created INTEGER,'
-    + 'author_id VARCHAR(12) NOT NULL);',
+    + 'created INTEGER, '
+    + 'author VARCHAR(12) NOT NULL);',
     []
   )
 
   db.executeSql('CREATE TABLE IF NOT EXISTS Authors( '
-    + 'author_id VARCHAR(12) KEY NOT NULL, '
-    + 'name VARCHAR(50), '
-    + 'title INTEGER PRIMARY KEY NOT NULL',
+    + 'author_id VARCHAR(12) PRIMARY KEY NOT NULL, '
+    + 'name VARCHAR(500), '
+    + 'title VARCHAR(500), '
     + 'photoUrl VARCHAR(500), '
-    + 'created INTEGER,'
-    + ');',
-    []
+    + 'created INTEGER);',
+    [], ()=>{}, (error) => {
+      console.info('Failed to crate Authors', error)
+    }
   )
+
 
   const authors = [
     {
@@ -81,23 +83,51 @@ const populateDB = () => {
     }
   ]
 
-  for (let index in quotes) {
-    db.executeSql(`INSERT INTO Authors (quote_id, text, author) VALUES (`
-      + `"${quotes[index].author_id}",`
-      + `"${quotes[index].name}",`
-      + `"${quotes[index].title}",`
-      + `"${authors[index].photoUrl}",`
+  for (let index in authors) {
+    db.executeSql(`INSERT INTO Authors (author_id, name, title, photoUrl) VALUES (`
+      + `"${authors[index].author_id}",`
+      + `"${authors[index].name}",`
+      + `"${authors[index].title}",`
+      + `"${authors[index].photoUrl}"`
       + ');'
-      , []);
+      , [], (result) => {
+        console.info(result)
+      });
   }
 
 
   for (let index in quotes) {
-    db.executeSql(`INSERT INTO Quotes (author_id, name, title, photoUrl) VALUES (`
+    db.executeSql(`INSERT INTO Quotes (quote_id, text, author) VALUES (`
       + `"${quotes[index].quote_id}",`
       + `"${quotes[index].text}",`
-      + `"${quotes[index].author}",`
+      + `"${quotes[index].author}"`
       + ');'
-      , []);
+      , [], (result) => {
+        console.info(result)
+      })
   }
+}
+
+export const readRamdomQuotes = (number) => {
+  const query = `SELECT quote_id, text, author_id, name, title, photoUrl from Quotes INNER JOIN Authors ON Authors.author_id = Quotes.author ORDER BY RANDOM() LIMIT ${number}`
+  return new Promise((resolve, reject) => {
+    db.executeSql(query, [], (result) => {
+      const rawQuotes = result.rows.raw()
+      const quotes = []
+      for (let rawQuote of rawQuotes) {
+        quotes.push({
+          quote_id: rawQuote.quote_id,
+          text: rawQuote.text,
+          author: {
+            author_id: rawQuote.author_id,
+            name: rawQuote.name,
+            photoUrl: rawQuote.photoUrl
+          }
+        })
+      }
+      resolve(quotes)
+    }, (error) => {
+      reject(error)
+    })
+  })
 }

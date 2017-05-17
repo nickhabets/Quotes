@@ -1,9 +1,8 @@
 import { List } from 'immutable'
 
+import { readRamdomQuotes } from '../sqlite'
 const { API_HOSTNAME } = process.env
 
-export const fetchExample = () => {
-  return fetch(`http://${API_HOSTNAME}/example`)
-    .then((res) => res.json())
-    .then((payload) => List(payload))
+export const fetchRandomQuotes = () => {
+  return readRamdomQuotes(3)
 }

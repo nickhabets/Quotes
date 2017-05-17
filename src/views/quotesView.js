@@ -17,6 +17,7 @@ import { connect } from 'react-redux'
 
 import Card from '../components/card'
 import NoMoreCards from '../components/noMoreCards'
+import { fetchQuotes } from '../store/quotes/duck'
 
 const { width, height } = Dimensions.get('window')
 
@@ -28,6 +29,12 @@ export class QuotesView extends Component {
 
   static defaultProps = {
     category: "UI/UX Quotes"
+  }
+  
+  constructor(props) {
+    super(props)
+    this.onLoop = this.onLoop.bind(this)
+    this.cardRemoved = this.cardRemoved.bind(this)
   }
 
   render() {
@@ -53,12 +60,15 @@ export class QuotesView extends Component {
           handleYup={this.handleYup}
           handleNope={this.handleNope}
           handleMaybe={this.handleMaybe}
+          cardRemoved={this.cardRemoved}
+          onLoop={this.onLoop}
           showYup={false}
           showNope={false}
           stackOffsetX={0}
           stackOffsetY={-10}
           hasMaybeAction
           stack
+          loop
         />
         <View style={styles.shareView}>
           <TouchableOpacity
@@ -94,6 +104,16 @@ export class QuotesView extends Component {
   }
 
   handleMaybe (card) {
+  }
+
+  cardRemoved (index) {
+    // Last Card was Removed ?
+    if (this.props.quotes.length === (index + 1)) {
+      this.props.fetchQuotes()
+    }
+  }
+  
+  onLoop() {
   }
 }
 
@@ -147,4 +167,6 @@ export default connect((state) => {
   }
 
   return props
+}, {
+  fetchQuotes
 })(QuotesView)

@@ -14,6 +14,7 @@ import * as api from './api'
 export const FETCH_QUOTES = 'quotes/quotes/FETCH_QUOTES'
 export const FETCH_QUOTES_SUCCESS = 'quotes/quotes/FETCH_QUOTES_SUCCESS'
 export const FETCH_QUOTES_ERROR = 'quotes/quotes/FETCH_QUOTES_ERROR'
+export const FETCH_RANDOM_QUOTES = 'quotes/quotes/FETCH_RANDOM_QUOTES'
 
 /**
  * Private: Initial State
@@ -44,7 +45,7 @@ export default function reducer(state = new InitialState(), action = {}) {
 
     case FETCH_QUOTES_SUCCESS:
       return state
-        .set('quotes', action.payload.quotes)
+        .set('quotes', new List(action.payload.quotes))
         .set('phase', SUCCESS)
 
     case FETCH_QUOTES_ERROR:
@@ -74,7 +75,7 @@ export const fetchQuotes = () => ({
 const fetchQuotesEpic = (action$) =>
   action$
     .ofType(FETCH_QUOTES)
-    .mergeMap(api.fetchExample)
+    .mergeMap(api.fetchRandomQuotes)
     .map((quotes) => ({
       type: FETCH_QUOTES_SUCCESS,
       payload: { quotes }
