@@ -1,5 +1,5 @@
 # Quotes
-Quotes app, built with React Native, GraphQL backend
+Quotes app, built with React Native, GraphQL backend.
 LOOKING FOR CONTRIBUTORS. More quotes are needed.
 If anyone has more famous quotes, please write me.
 
