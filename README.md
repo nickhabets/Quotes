@@ -19,6 +19,8 @@ A simple React Native app to show quotes, built with
 - [ ] Backend
 - [ ] Sync with Backend(GraphQL)
 - [ ] Dynamic Categories
+- [ ] Share with Facebook
+- [ ] Share with Twitter
 
 ### How to modify Quotes?
 
