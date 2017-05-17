@@ -4,3 +4,5 @@ LOOKING FOR CONTRIBUTORS. More quotes are needed. If anyone has more famous quot
 
 A simple React Native app to show quotes, built with
 [Tinder Cards for React Native!](https://github.com/meteor-factory/react-native-tinder-swipe-cards)
+
+![Image](/sasasim/Quotes/blob/master/resources/portfolio.jpg?raw=true)
