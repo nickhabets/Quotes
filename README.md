@@ -29,15 +29,15 @@ Please note the following for the schemas:
 #### Android
 Not ready yet: PRs are welcome! [DB Browser for SQLite](http://sqlitebrowser.org/)
 
-#### Schemas
-#####Quotes
-    - quote_id TEXT PRIMARY KEY NOT NULL
-    - text TEXT'
-    - created INTEGER, '
-    - author TEXT
-#####Authors
-    - author_id TEXT PRIMARY KEY NOT NULL
-    - name TEXT
-    - title TEXT
-    - photoUrl TEXT
-    - created INTEGER
+### Schemas
+####Quotes
+- quote_id TEXT PRIMARY KEY NOT NULL
+- text TEXT'
+- created INTEGER, '
+- author TEXT
+####Authors
+- author_id TEXT PRIMARY KEY NOT NULL
+- name TEXT
+- title TEXT
+- photoUrl TEXT
+- created INTEGER
